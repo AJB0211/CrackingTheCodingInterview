@@ -17,6 +17,7 @@ object URLify {
     // Otherwise indexing will be one space ahead due to zero-indexing
     builderIt -= 1
     // This is inefficient but convenient
+    // Alternately, just iterate backwards through the substring
     s.substring(0, trueLength).reverse.foreach { (c: Char) =>
       if (c == ' ') {
         builder(builderIt) = '0'

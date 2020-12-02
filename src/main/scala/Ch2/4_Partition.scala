@@ -3,10 +3,10 @@ package CTCI.Ch2
 import collection.mutable.ListBuffer
 
 object Partition{
-  // How to write type constraint for T to be subtype of order?
-  type T = Int
 
-  def partition (lst: List[T], x: T): List[T] = {
+  def partition[T](lst: List[T], x: T)(implicit ord: Ordering[T]): List[T] = {
+    import ord._
+
     val low = ListBuffer[T]()
     val high = ListBuffer[T]()
 

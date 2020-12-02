@@ -26,7 +26,7 @@ object StringCompression {
   }
 
 
-  def countCompressedLength(s: String): Int = {
+  private def countCompressedLength(s: String): Int = {
     var length: Int = 0
     var run: Int = 0
 
@@ -34,6 +34,7 @@ object StringCompression {
       run += 1
 
       if ( (i+1 >= s.length) || (s.charAt(i) != s.charAt(i+1))){
+        // Easy to use string conversion to count the characters it would take to represent your run length
         length += 1 + run.toString.length
         run = 0
       }

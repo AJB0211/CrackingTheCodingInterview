@@ -6,10 +6,12 @@ object ZeroMatrix {
 
   type Matrix = Array[Array[Int]]
 
-  def zeroRow(m: Matrix, rowIdx: Int): Unit = (0 until m(rowIdx).length).foreach{ m(rowIdx)(_) = 0 }
+  // Helper functions to zero out rows and columns when necessary
+  private def zeroRow(m: Matrix, rowIdx: Int): Unit = (0 until m(rowIdx).length).foreach{ m(rowIdx)(_) = 0 }
 
-  def zeroCol(m:Matrix, colIdx: Int): Unit = (0 until m.length).foreach{ m(_)(colIdx) = 0 }
+  private def zeroCol(m:Matrix, colIdx: Int): Unit = (0 until m.length).foreach{ m(_)(colIdx) = 0 }
 
+  // this is the callable that we want to be using
   def setZeros(m: Matrix): Unit = {
     require(validateMxN(m), "Needs to be an m x n array, a matrix")
 

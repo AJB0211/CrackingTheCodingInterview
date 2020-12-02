@@ -2,6 +2,11 @@ package CTCI.Ch2
 
 object SumLists {
   def sum(l1: List[Int], l2: List[Int]): List[Int] = {
+    /*
+    This method uses mutually recursive functions
+    The adder does case checking for the list and delegates the proper call to summer
+    summer manages logic for adding values together
+     */
     def adder(xs: List[Int], ys: List[Int], carry: Int): List[Int] = (xs,ys) match {
       case (Nil, Nil) => if (carry == 0) Nil else List(carry)
       case (x :: xs, Nil) => summer(x, carry, xs, Nil)
