@@ -10,6 +10,11 @@ object Intersection {
     println(Intersection.getIntersection(l2,l3))
   }
 
+  /**
+   *  Find the intersection of two Lists
+   *
+   * @return Intersection if intersection else Nil
+   */
   def getIntersection[T >: AnyRef](xs: List[T], ys: List[T]): List[T] = {
     // Fix xs to always be the longer list, easier to reason with
     if (ys.length > xs.length) {getIntersection(ys,xs)}
